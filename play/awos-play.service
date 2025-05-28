@@ -1,0 +1,15 @@
+[Unit]
+Description=AWOS Player
+
+[Service]
+ExecStart=/home/awos/play.sh
+Nice=-10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=awos-play
+User=awos
+Group=awos
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
