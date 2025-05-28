@@ -151,9 +151,9 @@ STORM_DISTANCE_5M_AGO=$(printf "%.0f" "$(
 # Only report storms if the distance is changing (indicating active detection)
 if [ "$STORM_DISTANCE" != "$STORM_DISTANCE_5M_AGO" ]; then
 	if [ "$STORM_DISTANCE" -le 5 ]; then
-		STORM_INFO="Thunderstorms nearby"
-	elif [ "$STORM_DISTANCE" -le 30 ]; then
-		STORM_INFO="Thunderstorms $STORM_DISTANCE miles away"
+		STORM_INFO="Thunderstorms nearby."
+	elif [ "$STORM_DISTANCE" -le 40 ]; then
+		STORM_INFO="Thunderstorms $STORM_DISTANCE miles away."
 	else
 		STORM_INFO=""
 	fi
