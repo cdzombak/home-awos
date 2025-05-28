@@ -169,8 +169,7 @@ ATIS_TXT="""
 West Lake automated weather observation.
 $TIME_LOC local time.
 $([ ! -z "$STORM_INFO" ] && echo "$STORM_INFO." || echo "").
-Wind from the $(cardinal_direction $WIND_DIR) at $WIND_SPEED_TEXT
-$([ $((WIND_GUST_MPH - WIND_MPH)) -gt 2 ] && echo ", gusting to $WIND_GUST_MPH" || echo "").
+$([ "$WIND_MPH" -lt 2 ] && echo "Wind calm." || echo "Wind from the $(cardinal_direction $WIND_DIR) at $WIND_SPEED_TEXT$([ $((WIND_GUST_MPH - WIND_MPH)) -gt 2 ] && echo ", gusting to $WIND_GUST_MPH" || echo "").").
 Temperature $TEMP_F degrees
 $([ $TEMP_F -lt 50 ] && echo ", wind chill $WIND_CHILL_F degrees" || echo "").
 Humidity $HUMIDITY percent.
