@@ -1,16 +1,18 @@
 [Unit]
 Description=AWOS Player
-StartLimitIntervalSec=5
+StartLimitBurst=0
+StartLimitIntervalSec=0
 
 [Service]
 ExecStart=/home/awos/play.sh
-Nice=-10
+Nice=-5
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=awos-play
 User=awos
 Group=awos
-Restart=on-failure
+Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
