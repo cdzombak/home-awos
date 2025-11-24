@@ -148,6 +148,13 @@ STORM_DISTANCE_5M_AGO=$(printf "%.0f" "$(
 	)"
 )
 
+AIR_QUALITY=$(
+	curl -sSL -XPOST http://jetstream.dzhome:8086/query?db=dzhome \
+		--header "Accept: application/json" \
+		--data-urlencode "q=SELECT epa_aqi_category FROM purpleair_monitor ORDER BY time DESC LIMIT 1" \
+		| jq -r '.results[0].series[0].values[0][1]'
+)
+
 # Only report storms if the distance is changing (indicating active detection)
 if [ "$STORM_DISTANCE" != "$STORM_DISTANCE_5M_AGO" ]; then
 	if [ "$STORM_DISTANCE" -le 5 ]; then
@@ -178,6 +185,7 @@ Cloud cover $CLOUDCOVER percent.
 U.V. Index $UV_IDX.
 Visibility $VISIBILITY miles.
 Altimeter $PRESSURE , and $PRESSURE_TREND.
+Air quality $AIR_QUALITY.
 End of observation.
 """
 
