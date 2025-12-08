@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Disabled</key>
+	<false/>
+	<key>Label</key>
+	<string>com.dzombak.awos</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/opt/homebrew/bin/runner</string>
+		<string>-job-name</string>
+		<string>com.dzombak.awos</string>
+		<string>-timeout</string>
+		<string>50</string>
+		<string>--</string>
+		<string>/Users/cdzombak/code/awos/awos.sh</string>
+	</array>
+	<key>StandardErrorPath</key>
+	<string>/Users/cdzombak/opt/log/launchd/awos.err.txt</string>
+	<key>StandardOutPath</key>
+	<string>/Users/cdzombak/opt/log/launchd/awos.out.txt</string>
+	<key>StartInterval</key>
+	<integer>60</integer>
+	<key>WorkingDirectory</key>
+	<string>/Users/cdzombak/code/awos/</string>
+</dict>
+</plist>
